@@ -149,12 +149,6 @@ module.exports = {
 				loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1!postcss')
 				// Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
 			},
-			// JSON is not enabled by default in Webpack but both Node and Browserify
-			// allow it implicitly so we also enable it.
-			{
-				test: /\.json$/,
-				loader: 'json'
-			},
 			// "file" loader for svg
 			{
 				test: /\.svg$/,
@@ -167,6 +161,30 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				loaders: ['style', 'css', 'sass']
+			},
+			{
+				test: /keys\.json$/,
+				loader: 'string-replace',
+				query: {
+					multiple: [
+						{ 
+							search: '$API_KEY',
+							replace: process.env.JOBSCORE_API_KEY
+						},
+						{
+							search: '$API_USER',
+							replace: process.env.JOBSCORE_API_USER
+						},
+						{
+							search: '$API_PASS',
+							replace: process.env.JOBSCORE_API_PASS
+						}
+					]
+				}
+			},
+			{
+				test: /\.json$/,
+				loader: 'json'
 			}
 		]
 	},
