@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "ajax-abstraction": "^1.0.5",
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
     "babel-eslint": "7.1.1",
@@ -30,6 +31,7 @@
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.2",
+    "jaiminho": "0.0.5",
     "jest": "17.0.2",
     "json-loader": "^0.5.4",
     "node-sass": "^4.0.0",
