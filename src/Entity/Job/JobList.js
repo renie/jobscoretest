@@ -4,7 +4,7 @@ import EntityList from '../EntityList';
 class JobList extends EntityList {
 	constructor() {
 		super();
-		this._entity = Job;
+		this.entity = Job;
 	}
 
 	getJobs(fn) {

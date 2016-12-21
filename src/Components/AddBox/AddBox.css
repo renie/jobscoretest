@@ -1,0 +1,117 @@
+#modal {
+	display: none;
+}
+
+#modal.active {
+	display: block;
+}
+
+#mask {
+	background: RGBA(0,0,0,0.4);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+#addbox {
+	background: #fff;
+	border: 3px solid #1f90aa;
+	left: 50%;
+	padding: 15px;
+	position: absolute;
+	top: 175px;
+	transform: translateX(-50%);
+	width: 600px;
+	z-index: 200;
+}
+
+#addbox::before {
+	background: #1f90aa;
+	border-radius: 50%;
+	content: ' ';
+	display: block;
+	height: 20px;
+	left: 50%;
+	position: relative;
+	top: 0px;
+	width: 20px;
+	transform: translateX(-50%) translateY(-27px);
+	z-index: 199;
+}
+
+
+#addbox h4 {
+	color: #1f90aa;
+	font-weight: bold;
+	font-size: 1.5em;
+	display: block;
+	text-align: center;
+	text-shadow: 1px 1px 3px #ccc;
+}
+
+#addbox .form {
+	margin: 50px 0 0;
+}
+
+#addbox .form input,
+#addbox .form select {
+	background: transparent;
+	border: none;
+	border-bottom: 1px dashed #1f90aa;
+	color: #1f90aa;
+	display: block;
+	margin: 0 auto 25px;
+	outline: none;
+	text-align: center;
+}
+
+#addbox .form select option {
+	text-align: center;
+	color: #1f90aa;
+}
+
+
+#addbox .form button {
+	background: #1f90aa;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px #999;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	margin: 55px auto 21px;
+	padding: 10px 20px;
+}
+
+#addbox .form button:hover { 
+	box-shadow: none;
+	margin: 56px auto 20px;
+}
+
+::-webkit-input-placeholder {
+   color: #1f90aa;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #1f90aa;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #1f90aa;  
+}
+
+:-ms-input-placeholder {  
+   color: #1f90aa;  
+}
+
+
+#msg {
+    text-align: center;
+    font-size: 1.2em;
+    color: #459951;
+    font-weight: bold;
+    text-decoration: underline;
+}

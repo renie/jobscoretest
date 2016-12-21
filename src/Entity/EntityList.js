@@ -5,9 +5,8 @@ import Keys from '../Utils/keys.json';
 
 class EntityList {
 	constructor() {
-		this._list = [];
-
-		this.Jaiminho = new Jaiminho();
+		this._list		= [];
+		this.Jaiminho	= new Jaiminho();
 	}
 
 	get list() {
@@ -16,31 +15,41 @@ class EntityList {
 
 	set list(newList) {
 		this._list = newList;
+
+		return this;
+	}
+
+	get entity() {
+		return this._entity;
+	}
+
+	set entity(newEntity) {
+		this._entity = newEntity;
+
+		return this;
+	}
+
+	buildAPIURL() {
+		return Keys.API_URL + this._entity.endpoint;
+	}
+
+	parseResult(result) {
+		return result.map((item) => new this._entity(item));
 	}
 
 	getEntities(callback) {
 		Ajax.call({
 			method: 'GET',
-			url: Keys.API_URL + this._entity.endpoint,
+			url: this.buildAPIURL(),
 			contentType: 'application/json',
 			headers: {
 				'Authorization' : 'Token token=' + Keys.API_KEY
 			},
 			success: (resData) => {
-				var entities = resData.data.map((item) => {
-					let entities = new this._entity(item);
-					return entities;
-				});
-
-				this._list = entities;
-
-				this.Jaiminho.trigger('js', 'updatelist', {
-					listType: this._entity.endpoint,
-					list: entities
-				});
+				this._list = this.parseResult(resData.data);
 
 				if (callback)
-					callback(entities);
+					callback(this._list);
 			},
 			fail: (req) => {
 				if (callback)
@@ -48,6 +57,7 @@ class EntityList {
 			}
 		});
 
+		return this;
 	}
 }
 

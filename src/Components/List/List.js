@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import JobList from '../../Entity/Job/JobList';
 import ListItem from './ListItem';
-//import AddBox from '../AddBox/AddBox';
+import AddBox from '../../Components/AddBox/AddBox';
 import Jaiminho from 'jaiminho';
 import './List.css';
 
@@ -18,7 +18,7 @@ class List extends Component {
 		this.populateJobs();
 	}
 
-	/*
+	
 	toggleModal(e) {
 		let btnClassList = e.target.classList;
 
@@ -32,7 +32,7 @@ class List extends Component {
 
 	}
 
-	*/
+	
 	populateJobs() {
 		this.JobList.getJobs(
 			(jobs) => {
@@ -45,7 +45,7 @@ class List extends Component {
 		return (
 			<div>
 				<button className="addBtn" onClick={ (e) => this.toggleModal(e)}>+</button>
-				
+				<AddBox/>
 				<ul className="joblist">
 					{this.state.listItems}
 				</ul>

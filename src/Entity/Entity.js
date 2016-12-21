@@ -5,8 +5,8 @@ import Utils from '../Utils/Utils';
 
 class Entity {
 	constructor(data) {
-		this.Jaiminho = new Jaiminho();
-
+		this.Jaiminho	= new Jaiminho();
+		
 		if (!data)
 			return;
 
@@ -35,6 +35,8 @@ class Entity {
 		this._links			= newData.links;
 		this._relationships = newData.relationships;
 		this._type			= newData.type;
+
+		return this;
 	}
 
 	dispatchUpdateEntityEvent(old) {
@@ -43,10 +45,16 @@ class Entity {
 			oldObject: old,
 			newObject: this
 		});
+
+		return this;
 	}
 
 	buildAPIURL() {
 		return Keys.API_URL + this.endpoint + '/' + this.id;
+	}
+
+	parseResult(result) {
+		return result.map((item) => new this._entity(item));
 	}
 
 	dataToSend() {
@@ -85,6 +93,8 @@ class Entity {
 
 		if (callback)
 			callback(oldthis, this);
+
+		return this;
 	}
 
 	load(callback) {
@@ -106,6 +116,8 @@ class Entity {
 					callback(null, Utils.handleXHRErrors(req));
 			}
 		});
+
+		return this;
 	}
 
 	save(callback) {
@@ -126,7 +138,9 @@ class Entity {
 				if (callback)
 					callback(null, Utils.handleXHRErrors(req));
 			}
-		});	
+		});
+
+		return this;
 	}
 }
 
