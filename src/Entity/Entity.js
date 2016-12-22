@@ -50,7 +50,7 @@ class Entity {
 	}
 
 	buildAPIURL() {
-		return Keys.API_URL + this.endpoint + '/' + this.id;
+		return Keys.API_URL + this.endpoint + (this.id ? '/'+ this.id : '');
 	}
 
 	parseResult(result) {
@@ -82,6 +82,7 @@ class Entity {
 		if (this.id)
 			dataToSend.data.id = this.id;
 
+		debugger;;
 		return dataToSend;
 	}
 
@@ -121,7 +122,7 @@ class Entity {
 	}
 
 	save(callback) {
-		let method = !this.id ? 'PUT' : 'POST';
+		let method = !this.id ? 'POST' : 'PATCH';
 		
 		Ajax.call({
 			method: method,
@@ -130,7 +131,7 @@ class Entity {
 			headers: {
 				'Authorization' : 'Token token=' + Keys.API_KEY
 			},
-			data: this.dataToSend,
+			data: JSON.stringify(this.dataToSend()),
 			success: (resData) => {
 				this.updateData(resData, callback);
 			},

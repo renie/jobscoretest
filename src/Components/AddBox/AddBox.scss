@@ -22,7 +22,7 @@
 	background: #fff;
 	border: 3px solid $blue;
 	left: 50%;
-	padding: 15px;
+	padding: 15px 30px;
 	position: absolute;
 	top: 175px;
 	transform: translateX(-50%);
@@ -48,22 +48,52 @@
 		font-weight: bold;
 		font-size: 1.5em;
 		display: block;
-		text-align: center;
+		text-align: left;
 		text-shadow: 1px 1px 3px #ccc;
+		border-bottom: 1px solid $blue;
+    	padding-bottom: 10px;
 	}
 
 	.form {
 		margin: 50px 0 0;
 		
+		.field-doubleline {
+			display: block;
+			width: 100%;
+			margin-bottom:25px;
+		}
+
+		label {
+			color: $blue;
+			cursor: pointer;
+			display: block;
+			float: left;
+			font-weight: bold;
+			width: 130px;			
+		}
+
+		.doubleField {
+			margin-right: 20px;
+			width: 150px;
+		}
+
+		input[type="checkbox"] {
+			margin: 2px 8px 2px 0;
+		}
+
 		input, select {
 			background: transparent;
 			border: none;
 			border-bottom: 1px dashed $blue;
 			color: $blue;
 			display: block;
-			margin: 0 auto 25px;
+			float: left;
 			outline: none;
 			text-align: center;
+		}
+
+		textarea {
+			border: 1px dashed $blue;
 		}
 
 		select option {
@@ -79,12 +109,14 @@
 			color: #fff;
 			cursor: pointer;
 			display: block;
-			margin: 55px auto 21px;
+			margin-top: 35px;
+			margin-bottom: 21px;
+			float: right;
 			padding: 10px 20px;
 
 			&:hover { 
 				box-shadow: none;
-				margin: 56px auto 20px;
+				margin-top: 36px;
 			}
 		}
 	}

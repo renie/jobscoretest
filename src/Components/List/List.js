@@ -13,7 +13,7 @@ class List extends Component {
 		this.jobs = null;
 		this.JobList = new JobList()
 		this.Jaiminho = new Jaiminho();
-		//this.Jaiminho.addListener('tag', 'updatelist', this.populateCows.bind(this));
+		this.Jaiminho.addListener('tag', 'updatelist', this.populateJobs.bind(this));
 
 		this.populateJobs();
 	}
