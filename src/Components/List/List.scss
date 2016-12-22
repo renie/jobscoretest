@@ -1,0 +1,115 @@
+@import '../common.scss';
+
+.joblist {
+	margin: 100px auto 0;
+	list-style: none;
+	width: 600px;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	li {
+		display: block;
+		list-style: none;
+	
+		header {
+			background: $gray;
+			cursor: pointer;
+			display: block;
+			opacity: 1;
+			padding: 10px;
+			transition: all 200ms ease-in-out;
+		
+			&:hover {
+				opacity: 0.6;
+			}
+
+			h3 {
+				float: left;
+			}
+
+			.published {
+				color: $blue;
+				float: right;
+				font-size: 0.9em;
+				font-weight: bold;
+				opacity: 0.5;
+			}
+		}		
+
+		.details {
+			background: $gray;
+			border: 1px solid transparent;
+			border-top: none;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			margin: 0 5%;
+			max-height: 0;
+			overflow: hidden;
+			padding: 0 10px;
+			width: 90%;
+			transition: all 200ms ease-in-out;
+			
+			&.show {
+				border: 1px solid $gray;
+				border-top: none;
+				margin-bottom: 10px;
+				max-height: 300px;
+				padding: 10px;
+			}
+			
+
+			dd, dt {
+				display: block;
+			}
+
+			dd {
+				color: $blue;
+				font-weight: bold;
+				font-size: 1.1em;
+				margin-bottom: 15px;
+			}
+
+			dt {
+				font-size: 0.8em;
+			}
+		}
+
+
+
+	}
+}
+
+.addBtn {
+	background: $blue;
+	border: none;
+	border-radius: 50%;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	font-weight: bold;
+	font-size: 1.8em;
+	height: 1.8em;
+	left: 50%;
+	line-height: 1.8em;
+	margin-top: 90px;
+	outline: none;
+	position: absolute;
+	top: 0;
+	transform: translateX(-50%);
+	transform-origin: 0 0;
+	transition: all 200ms ease-in-out;
+	width: 1.8em;
+	z-index: 300;
+	
+	&:hover {
+		background: #459951;
+	}
+
+	&.active {
+		background: #db4551;
+		transform: rotate(45deg);
+	}
+}
+

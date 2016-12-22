@@ -1,0 +1,117 @@
+@import '../common.scss';
+
+#modal {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
+
+#mask {
+	background: RGBA(0,0,0,0.4);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+#addbox {
+	background: #fff;
+	border: 3px solid $blue;
+	left: 50%;
+	padding: 15px;
+	position: absolute;
+	top: 175px;
+	transform: translateX(-50%);
+	width: 600px;
+	z-index: 200;
+
+	&::before {
+		background: $blue;
+		border-radius: 50%;
+		content: ' ';
+		display: block;
+		height: 20px;
+		left: 50%;
+		position: relative;
+		top: 0px;
+		width: 20px;
+		transform: translateX(-50%) translateY(-27px);
+		z-index: 199;
+	}
+
+	h4 {
+		color: $blue;
+		font-weight: bold;
+		font-size: 1.5em;
+		display: block;
+		text-align: center;
+		text-shadow: 1px 1px 3px #ccc;
+	}
+
+	.form {
+		margin: 50px 0 0;
+		
+		input, select {
+			background: transparent;
+			border: none;
+			border-bottom: 1px dashed $blue;
+			color: $blue;
+			display: block;
+			margin: 0 auto 25px;
+			outline: none;
+			text-align: center;
+		}
+
+		select option {
+			text-align: center;
+			color: $blue;
+		}
+
+		button {
+			background: $blue;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 1px 1px 3px #999;
+			color: #fff;
+			cursor: pointer;
+			display: block;
+			margin: 55px auto 21px;
+			padding: 10px 20px;
+
+			&:hover { 
+				box-shadow: none;
+				margin: 56px auto 20px;
+			}
+		}
+	}
+}
+
+
+
+#msg {
+	text-align: center;
+	font-size: 1.2em;
+	color: #459951;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+::-webkit-input-placeholder {
+	color: $blue;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	color: $blue;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	color: $blue;  
+}
+
+:-ms-input-placeholder {  
+	color: $blue;
+}

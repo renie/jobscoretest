@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './AddBox.css';
+import './AddBox.scss';
 import Job from '../../Entity/Job/Job';
 import Jaiminho from 'jaiminho';
 
@@ -18,10 +18,10 @@ class AddBox extends Component {
 	}
 
 	closeModal(e) {
-		document.querySelector('input#form_cad_weight').value = '';
+		/*document.querySelector('input#form_cad_weight').value = '';
 		document.querySelector('input#form_cad_age').value = '';
 		document.querySelector('input#form_cad_price').value = '';
-		document.querySelector('#msg').innerHTML = '';
+		document.querySelector('#msg').innerHTML = '';*/
 		
 		document.querySelector('#modal').classList.remove('active');
 	}
@@ -57,8 +57,13 @@ class AddBox extends Component {
 					<h4>Create Job</h4>
 
 					<form className="form">
-						<input type="text" id="form_title" placeholder="Title" required="required"/>
+
+						<div className="field-doubleline">
+							<label htmlfor="form_title">Title:</label>
+							<input type="text" id="form_title" required="required"/>
+						</div>
 						<input type="text" id="form_description" placeholder="Description" required="required"/>
+						<label htmlfor="form_status">Status:</label>
 						<select id="form_status">
 							<option value="open">open</option>
 							<option value="on_hold">on_hold</option>

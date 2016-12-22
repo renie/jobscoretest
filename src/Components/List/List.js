@@ -3,7 +3,7 @@ import JobList from '../../Entity/Job/JobList';
 import ListItem from './ListItem';
 import AddBox from '../../Components/AddBox/AddBox';
 import Jaiminho from 'jaiminho';
-import './List.css';
+import './List.scss';
 
 class List extends Component {
 	
